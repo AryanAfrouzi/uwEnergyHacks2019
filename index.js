@@ -1,5 +1,10 @@
 firebase.auth().onAuthStateChanged(function(user) {
   if (user) {
+    //get id token
+    user.getIdToken().then(function(idToken) {
+      userIdToken = idToken;
+    });
+
     // User is signed in.
 
     document.getElementById("user_div").style.display = "block";
@@ -24,7 +29,6 @@ firebase.auth().onAuthStateChanged(function(user) {
 });
 
 function login(){
-
   var userEmail = document.getElementById("email_field").value;
   var userPass = document.getElementById("password_field").value;
 
@@ -42,4 +46,20 @@ function login(){
 
 function logout(){
   firebase.auth().signOut();
+}
+
+function submitLocation() {
+  var start = $('location_start').val();
+  var destination = $('location_destination').val();
+  $.ajax(databaseURL + 'destination', {
+    headers: {
+      'Authorization': 'Bearer ' + userIdToken,
+      'Access-Control-Allow-Origin': '*'
+    },
+    method: 'POST',
+    data: JSON.stringify({'start': start, 'destination': destination}),
+    contentType : 'application/json'
+  }).then(function(data){
+
+  });
 }
