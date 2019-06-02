@@ -146,6 +146,9 @@ function retrieveStats() {
 //populate stats for cars
 document.getElementById("car1").addEventListener("click", function(){
   openTopNav();
+  $('.activeCar').removeClass('activeCar');
+  $('#car1').addClass('activeCar');
+
   $('.total-carbon').html(stats[0][0]);
   $('.average-carbon').html(stats[0][1]);
   $('.total-carbon-saved').html(stats[0][3]);
@@ -158,7 +161,9 @@ document.getElementById("car1").addEventListener("click", function(){
 
 document.getElementById("car2").addEventListener("click", function(){
   openTopNav();
- 
+  $('.activeCar').removeClass('activeCar');
+  $('#car2').addClass('activeCar');
+
   $('.total-carbon').html(stats[1][0]);
   $('.average-carbon').html(stats[1][1]);
   $('.total-carbon-saved').html(stats[1][3]);
@@ -171,7 +176,9 @@ document.getElementById("car2").addEventListener("click", function(){
 
 document.getElementById("car3").addEventListener("click", function(){
   openTopNav();
- 
+  $('.activeCar').removeClass('activeCar');
+  $('#car3').addClass('activeCar');
+
   $('.total-carbon').html(stats[2][0]);
   $('.average-carbon').html(stats[2][1]);
   $('.total-carbon-saved').html(stats[2][3]);
@@ -184,6 +191,8 @@ document.getElementById("car3").addEventListener("click", function(){
 
 document.getElementById("car4").addEventListener("click", function(){
   openTopNav();
+  $('.activeCar').removeClass('activeCar');
+  $('#car4').addClass('activeCar');
 
   $('.total-carbon').html(stats[3][0]);
   $('.average-carbon').html(stats[3][1]);

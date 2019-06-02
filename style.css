@@ -281,7 +281,9 @@ body, html {
   display: inline;
 }
 
-
+.activeCar {
+  color: white !important;
+}
 
 
 
