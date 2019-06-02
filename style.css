@@ -39,9 +39,9 @@ input, button {
 }
 
 .main-div button {
-  background: #5d8ffc;
+  background: #00cc66;
   color: #fff;
-  border: 1px solid #5d8ffc;
+  border: 1px solid #00cc66;
   border-radius: 5px;
   padding: 15px;
   display: block;
@@ -53,8 +53,8 @@ input, button {
 
 .main-div button:hover, .loggedin-div button:hover {
   background: #fff;
-  color: #5d8ffc;
-  border: 1px solid #5d8ffc;
+  color: #00cc66;
+  border: 1px solid #00cc66;
   cursor: pointer;
 } */
 
@@ -63,18 +63,28 @@ input, button {
   color: black;
 }
 
+.nav-item {
+  color: black;
+}
+
+.statistics {
+  color: #00cc66;
+}
+
+.statistics:hover {
+  cursor: pointer;
+}
+
 .logout-button {
   height: 100%;
-  background: #5d8ffc;
+  background: #00cc66;
   color: #fff;
-  border: 1px solid #5d8ffc;
+  border: 1px solid #00cc66;
   border-radius: 5px;
 }
 
-.navbar-brand {
-  margin: 0;
-  padding: 0;
-  font-size: 18;
+.nav-link {
+  color: #00cc66 !important
 }
 
 .location_start, .location_destination {
@@ -83,9 +93,9 @@ input, button {
 }
 
 .location_submit {
-  background: #5d8ffc;
+  background: #00cc66;
   color: #fff;
-  border: 1px solid #5d8ffc;
+  border: 1px solid #00cc66;
   border-radius: 5px;
   padding: 15px;
   display: block;
@@ -98,19 +108,108 @@ input, button {
 
 .location_submit::hover {
   background: #fff;
-  color: #5d8ffc;
-  border: 1px solid #5d8ffc;
+  color: #00cc66;
+  border: 1px solid #00cc66;
   cursor: pointer;
 }
 
 /* Map Styling */
 #map {
-  width: 70%;
-  height: auto;
+  height: 100%;
 }
 
-.navbar-container .navbar {
-  justify: center
+.navbar {
+  padding: 0;
+}
+
+.navbar-nav.navbar-center {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top:50%;
+}
+
+.location {
+  height: 100vh;
+}
+
+
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: 100vh; /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
+}
+.navbar {
+  z-index: 10000;
+}
+
+body, html {
+  width: 100vw;
+}
+
+/* sidebar */
+ /* The side navigation menu */
+ .sidenav {
+  height: 100%; /* 100% Full-height */
+  width: 0; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #00cc66; /* Black*/
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 60px; /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+
+/* The navigation menu links */
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left .5s;
+  padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+} 
+
+.navbar {
+  display: fixed;
+}
+
+.dropdown-item.active {
+  background-color: #00cc66 !important;
+}
+
+.dropdown-item.active:visited {
+  background-color: #00cc66 !important;
 }
 
 

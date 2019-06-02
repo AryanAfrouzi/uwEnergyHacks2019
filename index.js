@@ -77,6 +77,7 @@ function initMap() {
         data: JSON.stringify({'location1': start, 'location2': destination, 'cartype': carModel}),
         contentType : 'application/json'
       }).then(function(recieved) {
+        console.log(recieved);
         data = recieved['path'];
 
         var map = new google.maps.Map(document.getElementById('map'), {
@@ -134,8 +135,7 @@ function initializeAutocomplete() {
 initMap();
 initializeAutocomplete();
 
-//google.maps.event.addDomListener(window, "load", initMap);
-//google.maps.event.addDomListener(window, 'load', initializeAutocomplete);
+
 
 
 

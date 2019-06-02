@@ -2,7 +2,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Firebase Login</title>
+  <title>Green Route</title>
 
   <!--Bootstrap-->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -13,11 +13,10 @@
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
 
   <link href="https://fonts.googleapis.com/css?family=Nunito:400,600,700" rel="stylesheet">
-  <link rel="stylesheet" href="style.css"/>
   <link rel="stylesheet" href="normalize.css"/>
+  <link rel="stylesheet" href="style.css"/>
 </head>
 <body>
-
   <div id="login_div" class="main-div">
     <h3>Firebase Web login Example</h3>
     <input type="email" placeholder="Email..." id="email_field" />
@@ -26,22 +25,29 @@
     <button onclick="login()">Login to Account</button>
   </div>
 
-  <div id="user_div" class="loggedin-div">
-    <nav class="navbar navbar-expand-sm justify-content-center">
-      <div class="container-fluid">
-        <p class="navbar-brand" id="user_para">Welcome to Firebase web login Example. You're currently logged in.</p>
 
+  <div id="user_div" class="loggedin-div">
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <a href="#">yes</a>
+      <a href="#">Services</a>
+      <a href="#">Clients</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="main">
+      <nav class="navbar sticky-top navbar-expand-sm fixed-top">
+        <!--<p class="navbar-brand" id="user_para">Welcome to Firebase web login Example. You're currently logged in.</p>-->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
         </button>
       
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-          <ul class="navbar-nav">
+          <ul class="navbar-nav navbar-center">
             <li class="nav-item active">
               <a class="nav-link" href="">Home<span class="sr-only">(current)</span></a>
             </li>
             <li class="nav-item">
-              <a class="nav-link" href="">Statistics</a>
+              <a class="nav-link statistics" onclick="openNav()">Statistics</a>
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -66,30 +72,30 @@
             </li>
           </ul>
         </div>
-      </div>
-    </nav>
+      </nav>
 
-    <form class="location">
-      <div class="container">
-        <div class="row">
-          <div class="col-md-3"></div>
-          <div class="col-md-6">
-            Start<br>
-            <input id="start" class="location_start" type="text" name="start" maxlength="40" size="35%">
-            <br>
-            Destination<br>
-            <input id="end" class="location_destination" type="text" name="end" maxlength="40" size="35%">
-            <button id="submit" type='button' class="location_submit">Submit</button>
-          </div>
-          <div class="col-md-3">
+      <form class="location">
+        <div class="vertical-center">
+          <div class="container">
+            <div class="row">
+              <div class="col-md-3"></div>
+              <div class="col-md-6">
+                Start<br>
+                <input id="start" class="location_start" type="text" name="start" maxlength="40" size="35%">
+                <br>
+                Destination<br>
+                <input id="end" class="location_destination" type="text" name="end" maxlength="40" size="35%">
+                <button id="submit" type='button' class="location_submit">Submit</button>
+              </div>
+              <div class="col-md-3">
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </f>
-    <div id="map"></div>
-
-  
-
+      </form>
+      <div id="map"></div>
+    </div>
+  </div>
   
 
 
