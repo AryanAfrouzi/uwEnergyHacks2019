@@ -1,0 +1,20 @@
+runtime: python27
+api_version: 1
+threadsafe: true
+
+handlers:
+- url: /
+  static_files: index.html
+  upload: index.html
+
+- url: /index.js
+  static_files: index.js
+  upload: index.js
+
+- url: /normalize.css
+  static_files: normalize.css
+  upload: normalize.css
+
+- url: /style.css
+  static_files: style.css
+  upload: style.css
