@@ -77,11 +77,10 @@ function initMap() {
         data: JSON.stringify({'location1': start, 'location2': destination, 'cartype': carModel}),
         contentType : 'application/json'
       }).then(function(recieved) {
-        console.log(recieved);
         data = recieved['path'];
 
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 9,
+          zoom: 7,
           center: {lat:data[Math.floor((data.length)/2)][0], lng: data[Math.floor((data.length)/2)][1]}
         })
       
@@ -119,10 +118,28 @@ function initMap() {
         path = route;
         // update the polyline with the updated path
         poly.setPath(path); 
+        //scrolls down to map
+        document.getElementById('map').style.height = "500px";
+
+        $('html, body').animate({
+          scrollTop: $("#map").offset().top
+        }, 1000);
+
+        populateStats();
       }); 
     } 
   });
 } 
+
+function populateStats() {
+  $.ajax(backendhosturl, {
+    headers: {
+      'Authorization': 'Bearer ' + userIdToken,
+    },
+  }).then(function(data) {
+    console.log(data);
+  });
+}
 
 //Maps autocomplete api
 function initializeAutocomplete() {
@@ -135,7 +152,17 @@ function initializeAutocomplete() {
 initMap();
 initializeAutocomplete();
 
+/* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+  document.getElementById("main").style.marginLeft = "250px";
+}
 
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+  document.getElementById("main").style.marginLeft = "0";
+} 
 
 
 
