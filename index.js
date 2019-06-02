@@ -125,21 +125,76 @@ function initMap() {
           scrollTop: $("#map").offset().top
         }, 1000);
 
-        populateStats();
+        retrieveStats();
       }); 
     } 
   });
 } 
 
-function populateStats() {
+var stats;
+
+function retrieveStats() {
   $.ajax(backendhosturl, {
     headers: {
       'Authorization': 'Bearer ' + userIdToken,
     },
   }).then(function(data) {
-    console.log(data);
+    stats = data;
+    console.log(stats);
   });
 }
+//populate stats for cars
+document.getElementById("car1").addEventListener("click", function(){
+  openTopNav();
+  $('.total-carbon').html(stats[0][0]);
+  $('.average-carbon').html(stats[0][1]);
+  $('.total-carbon-saved').html(stats[0][3]);
+  $('.average-carbon-saved').html(stats[0][4]);
+  $('.average-mpg').html(stats[0][6]);
+  $('.total-miles-driven').html(stats[0][8]);
+  $('.average-miles-driven').html(stats[0][9]);
+  $('.average-speed').html(stats[0][11]);
+});
+
+document.getElementById("car2").addEventListener("click", function(){
+  openTopNav();
+ 
+  $('.total-carbon').html(stats[1][0]);
+  $('.average-carbon').html(stats[1][1]);
+  $('.total-carbon-saved').html(stats[1][3]);
+  $('.average-carbon-saved').html(stats[1][4]);
+  $('.average-mpg').html(stats[1][6]);
+  $('.total-miles-driven').html(stats[1][8]);
+  $('.average-miles-driven').html(stats[1][9]);
+  $('.average-speed').html(stats[1][11]);
+});
+
+document.getElementById("car3").addEventListener("click", function(){
+  openTopNav();
+ 
+  $('.total-carbon').html(stats[2][0]);
+  $('.average-carbon').html(stats[2][1]);
+  $('.total-carbon-saved').html(stats[2][3]);
+  $('.average-carbon-saved').html(stats[2][4]);
+  $('.average-mpg').html(stats[2][6]);
+  $('.total-miles-driven').html(stats[2][8]);
+  $('.average-miles-driven').html(stats[2][9]);
+  $('.average-speed').html(stats[2][11]);
+});
+
+document.getElementById("car4").addEventListener("click", function(){
+  openTopNav();
+
+  $('.total-carbon').html(stats[3][0]);
+  $('.average-carbon').html(stats[3][1]);
+  $('.total-carbon-saved').html(stats[3][3]);
+  $('.average-carbon-saved').html(stats[3][4]);
+  $('.average-mpg').html(stats[3][6]);
+  $('.total-miles-driven').html(stats[3][8]);
+  $('.average-miles-driven').html(stats[3][9]);
+  $('.average-speed').html(stats[3][11]);
+});
+
 
 //Maps autocomplete api
 function initializeAutocomplete() {
@@ -154,8 +209,8 @@ initializeAutocomplete();
 
 /* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
 function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
-  document.getElementById("main").style.marginLeft = "250px";
+  document.getElementById("mySidenav").style.width = "275px";
+  document.getElementById("main").style.marginLeft = "275px";
 }
 
 /* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
@@ -164,7 +219,15 @@ function closeNav() {
   document.getElementById("main").style.marginLeft = "0";
 } 
 
+/* Set the width of the side navigation to 250px and the left margin of the page content to 250px */
+function openTopNav() {
+  document.getElementById("topsidenav").style.height = "500px";
+}
 
+/* Set the width of the side navigation to 0 and the left margin of the page content to 0 */
+function closeTopNav() {
+  document.getElementById("topsidenav").style.height = "0";
+} 
 
 
 

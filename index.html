@@ -18,7 +18,7 @@
 </head>
 <body>
   <div id="login_div" class="main-div">
-    <h3>Firebase Web login Example</h3>
+    <h3>Login</h3>
     <input type="email" placeholder="Email..." id="email_field" />
     <input type="password" placeholder="Password..." id="password_field" />
 
@@ -29,15 +29,51 @@
   <div id="user_div" class="loggedin-div">
     <div id="mySidenav" class="sidenav">
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-      <a></a>
-      <a>Services</a>
-      <a>Clients</a>
-      <a>Contact</a>
+      <a id="car1">Midsize Sedan CV</a>
+      <a id="car2">Midsize Sedan HEV</a>
+      <a id="car3">SUV CV</a>
+      <a id="car4">SUV HEV</a>
     </div>
+
+    <div id="topsidenav" class="sidenav2">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeTopNav()">&times;</a>
+      <div style="margin-left: 300px" class="container">
+        <tr class="row">
+          <h3 class="car-type"></h3>
+        </tr>
+        <tr class="row">
+          <th class="col-2-md">
+            <h5>Total Carbon: <h5 class="total-carbon" style="display: inline;"></h5></h5>
+          </th>
+          <th class="col-2-md">
+            <h5>Average Carbon: <h5 class="average-carbon" style="display: inline;"></h5></h5>
+          </th>
+          <th class="col-2-md">
+            <h5>Total Carbon Saved: <h5 class="total-carbon-saved" style="display: inline;"></h5></h5>
+          </th>
+          <th class="col-2-md">
+            <h5>Average Carbon Saved: <h5 class="average-carbon-saved" style="display: inline;"></h5></h5>
+          </th>
+        </tr>
+        <tr class="row">
+          <th class="col-2-md">
+            <h5>Average MPG: <h5 class="average-mpg" style="display: inline;"></h5></h5>
+          </th>
+          <th class="col-2-md">
+            <h5>Total Miles Driven: <h5 class="total-miles-driven" style="display: inline;"></h5></h5>
+          </th>
+          <th class="col-2-md">
+            <h5>Average Miles Driven: <h5 class="average-miles-driven" style="display: inline;"></h5></h5>
+          </th>
+          <th class="col-2-md">
+            <h5>Average Speed: <h5 class="average-speed" style="display: inline;"></h5></h5>
+          </th>
+        </tr>
+      </div>
+    </div> 
 
     <div class="main">
       <nav class="navbar sticky-top navbar-expand-sm fixed-top">
-        <!--<p class="navbar-brand" id="user_para">Welcome to Firebase web login Example. You're currently logged in.</p>-->
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"><i class="fas fa-bars"></i></span>
         </button>

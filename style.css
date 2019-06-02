@@ -143,7 +143,7 @@ input, button {
   align-items: center;
 }
 .navbar {
-  z-index: 10000;
+  z-index: 9999;
 }
 
 body, html {
@@ -156,13 +156,14 @@ body, html {
   height: 100%; /* 100% Full-height */
   width: 0; /* 0 width - change this with JavaScript */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
+  z-index: 10001; /* Stay on top */
   top: 0; /* Stay at the top */
   left: 0;
   background-color: #00cc66; /* Black*/
   overflow-x: hidden; /* Disable horizontal scroll */
   padding-top: 60px; /* Place content 60px from the top */
   transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  border-right: 1px black solid;
 }
 
 /* The navigation menu links */
@@ -213,5 +214,96 @@ body, html {
   background-color: #00cc66 !important;
 }
 
+/* sidebar */
+ /* The top side navigation menu */
+.sidenav2 {
+  height: 0%; /* 100% Full-height */
+  width: 100%; /* 0 width - change this with JavaScript */
+  position: fixed; /* Stay in place */
+  z-index: 10000; /* Stay on top */
+  top: 0; /* Stay at the top */
+  left: 0;
+  background-color: #00cc66; /* Black*/
+  overflow-y: hidden; /* Disable horizontal scroll */ /* Place content 60px from the top */
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  overflow: hidden;
+}
+
+/* The navigation menu links */
+.sidenav2 a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: white;
+  display: block;
+  transition: 0.3s;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav2 a:hover {
+  color: #f1f1f1;
+}
+
+/* Position and style the close button (top right corner) */
+.sidenav2 .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+#main {
+  transition: margin-left .5s;
+  padding: 20px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+} 
+
+.navbar {
+  display: fixed;
+}
+
+.dropdown-item.active {
+  background-color: #00cc66 !important;
+}
+
+.dropdown-item.active:visited {
+  background-color: #00cc66 !important;
+}
+
+.total-miles-driven, .average-miles-driven, .average-speed, .average-mpg, .total-carbon, .average-carbon, .total-carbon-saved, .average-carbon-saved {
+  display: inline;
+}
+
+
+
+
+
+
+
+
+
+
+#car1:hover{
+  cursor: pointer;
+}
+
+#car2:hover{
+  cursor: pointer;
+}
+
+#car3:hover{
+  cursor: pointer;
+}
+
+#car4:hover{
+  cursor: pointer;
+}
 
 
