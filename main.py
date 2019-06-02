@@ -46,7 +46,7 @@ def algo():
     entities = query_database(claims['sub'])
     
     if len(entities) != 0:
-        data = query_database(claims['sub'])[0]
+        data = entities[0]
     else:
         data = Account(
             parent=ndb.Key(Account, claims['sub']),
@@ -162,7 +162,7 @@ def algog():
     entities = query_database(claims['sub'])
     
     if len(entities) != 0:
-        return jsonify(ndb.Key(Account, claims['sub']).get()), 200
+        return jsonify(entities[0]), 200
     else:
         return jsonify([]), 200
     
