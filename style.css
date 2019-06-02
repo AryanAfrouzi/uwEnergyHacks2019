@@ -1,8 +1,6 @@
 /* Login */
 body {
   background: #fff;
-  padding: 0px;
-  margin: 0px;
   font-family: 'Nunito', sans-serif;
   font-size: 16px;
 }
@@ -10,9 +8,11 @@ body {
 input, button {
   font-family: 'Nunito', sans-serif;
   font-weight: 700;
+  outline: none;
 }
 
-.main-div, .loggedin-div {
+/* login page */
+.main-div {
   width: 20%;
   margin: 0px auto;
   margin-top: 150px;
@@ -38,7 +38,7 @@ input, button {
   border: 1px solid #777;
 }
 
-.main-div button, .loggedin-div button {
+.main-div button {
   background: #5d8ffc;
   color: #fff;
   border: 1px solid #5d8ffc;
@@ -56,9 +56,27 @@ input, button {
   color: #5d8ffc;
   border: 1px solid #5d8ffc;
   cursor: pointer;
-}
+} */
 
 /* main page */
+.nav-item.active .nav-link{
+  color: black;
+}
 
+.logout-button {
+  height: 100%;
+  background: #5d8ffc;
+  color: #fff;
+  border: 1px solid #5d8ffc;
+}
 
+.navbar-brand {
+  margin: 0;
+  padding: 0;
+}
+
+/* Map Styling */
+#map {
+  height: 100%;
+}
 
