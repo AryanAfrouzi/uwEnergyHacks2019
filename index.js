@@ -149,14 +149,14 @@ document.getElementById("car1").addEventListener("click", function(){
   $('.activeCar').removeClass('activeCar');
   $('#car1').addClass('activeCar');
 
-  $('.total-carbon').html(stats[0][0]);
-  $('.average-carbon').html(stats[0][1]);
-  $('.total-carbon-saved').html(stats[0][3]);
-  $('.average-carbon-saved').html(stats[0][4]);
-  $('.average-mpg').html(stats[0][6]);
-  $('.total-miles-driven').html(stats[0][8]);
-  $('.average-miles-driven').html(stats[0][9]);
-  $('.average-speed').html(stats[0][11]);
+  $('.total-carbon').html((stats[0][0]/1000).toFixed(2).toString() + 'kg');
+  $('.average-carbon').html((stats[0][1]/1000).toFixed(2).toString() + 'kg');
+  $('.total-carbon-saved').html((stats[0][3]/1000).toFixed(2).toString() + 'kg');
+  $('.average-carbon-saved').html((stats[0][4]/1000).toFixed(2).toString() + 'kg');
+  $('.average-mpg').html(stats[0][6].toFixed(2).toString() + 'MPG');
+  $('.total-miles-driven').html((stats[0][8]/1000).toFixed(2).toString() + 'km');
+  $('.average-miles-driven').html((stats[0][9]/1000).toFixed(2).toString() + 'km');
+  $('.average-speed').html((stats[0][11]/1000).toFixed(2).toString() + 'km');
 });
 
 document.getElementById("car2").addEventListener("click", function(){
@@ -164,14 +164,14 @@ document.getElementById("car2").addEventListener("click", function(){
   $('.activeCar').removeClass('activeCar');
   $('#car2').addClass('activeCar');
 
-  $('.total-carbon').html(stats[1][0]);
-  $('.average-carbon').html(stats[1][1]);
-  $('.total-carbon-saved').html(stats[1][3]);
-  $('.average-carbon-saved').html(stats[1][4]);
-  $('.average-mpg').html(stats[1][6]);
-  $('.total-miles-driven').html(stats[1][8]);
-  $('.average-miles-driven').html(stats[1][9]);
-  $('.average-speed').html(stats[1][11]);
+  $('.total-carbon').html((stats[1][0]/1000).toFixed(2).toString() + 'kg');
+  $('.average-carbon').html((stats[1][1]/1000).toFixed(2).toString() + 'kg');
+  $('.total-carbon-saved').html((stats[1][3]/1000).toFixed(2).toString() + 'kg');
+  $('.average-carbon-saved').html((stats[1][4]/1000).toFixed(2).toString() + 'kg');
+  $('.average-mpg').html(stats[1][6].toFixed(2).toString() + 'MPG');
+  $('.total-miles-driven').html((stats[1][8]/1000).toFixed(2).toString() + 'km');
+  $('.average-miles-driven').html((stats[1][9]/1000).toFixed(2).toString() + 'km');
+  $('.average-speed').html((stats[1][11]/1000).toFixed(2).toString() + 'km');
 });
 
 document.getElementById("car3").addEventListener("click", function(){
@@ -179,14 +179,14 @@ document.getElementById("car3").addEventListener("click", function(){
   $('.activeCar').removeClass('activeCar');
   $('#car3').addClass('activeCar');
 
-  $('.total-carbon').html(stats[2][0]);
-  $('.average-carbon').html(stats[2][1]);
-  $('.total-carbon-saved').html(stats[2][3]);
-  $('.average-carbon-saved').html(stats[2][4]);
-  $('.average-mpg').html(stats[2][6]);
-  $('.total-miles-driven').html(stats[2][8]);
-  $('.average-miles-driven').html(stats[2][9]);
-  $('.average-speed').html(stats[2][11]);
+  $('.total-carbon').html((stats[2][0]/1000).toFixed(2).toString() + 'kg');
+  $('.average-carbon').html((stats[2][1]/1000).toFixed(2).toString() + 'kg');
+  $('.total-carbon-saved').html((stats[2][3]/1000).toFixed(2).toString() + 'kg');
+  $('.average-carbon-saved').html((stats[2][4]/1000).toFixed(2).toString() + 'kg');
+  $('.average-mpg').html(stats[2][6].toFixed(2).toString() + 'MPG');
+  $('.total-miles-driven').html((stats[2][8]/1000).toFixed(2).toString() + 'km');
+  $('.average-miles-driven').html((stats[2][9]/1000).toFixed(2).toString() + 'km');
+  $('.average-speed').html((stats[2][11]/1000).toFixed(2).toString() + 'km');
 });
 
 document.getElementById("car4").addEventListener("click", function(){
@@ -194,14 +194,14 @@ document.getElementById("car4").addEventListener("click", function(){
   $('.activeCar').removeClass('activeCar');
   $('#car4').addClass('activeCar');
 
-  $('.total-carbon').html(stats[3][0]);
-  $('.average-carbon').html(stats[3][1]);
-  $('.total-carbon-saved').html(stats[3][3]);
-  $('.average-carbon-saved').html(stats[3][4]);
-  $('.average-mpg').html(stats[3][6]);
-  $('.total-miles-driven').html(stats[3][8]);
-  $('.average-miles-driven').html(stats[3][9]);
-  $('.average-speed').html(stats[3][11]);
+  $('.total-carbon').html((stats[3][0]/1000).toFixed(2).toString() + 'kg');
+  $('.average-carbon').html((stats[3][1]/1000).toFixed(2).toString() + 'kg');
+  $('.total-carbon-saved').html((stats[3][3]/1000).toFixed(2).toString() + 'kg');
+  $('.average-carbon-saved').html((stats[3][4]/1000).toFixed(2).toString() + 'kg');
+  $('.average-mpg').html(stats[3][6].toFixed(2).toString() + 'MPG');
+  $('.total-miles-driven').html((stats[3][8]/1000).toFixed(2).toString() + 'km');
+  $('.average-miles-driven').html((stats[3][9]/1000).toFixed(2).toString() + 'km');
+  $('.average-speed').html((stats[3][11]/1000).toFixed(2).toString() + 'km');
 });
 
 
