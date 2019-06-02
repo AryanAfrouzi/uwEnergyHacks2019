@@ -2,10 +2,11 @@ import vincenty
 import math
 import requests
 import json
+import polyline
 
 API_KEY = "AIzaSyBAc8hF0Rab50oJJRbemflUPbB-7lCXTmk"
 
-emissionsData = {'MidSedCV':[(-5, 2.21), (0, 3.21), (5, 6.11)], 'MidSedHEV':[(-5, 0.06), (0, 1.98), (5, 4.9)], 'SUVCV':[(-5, 3.07), (0, 4.32), (5, 8.32)], 'SUVHEV':[(-5, 0.15), (0, 3), (5, 7.03)]}
+emissionsData = {'Midsize Sedan CV':[(-5, 2.21), (0, 3.21), (5, 6.11)], 'Midsize Sedan HEV':[(-5, 0.06), (0, 1.98), (5, 4.9)], 'SUV CV':[(-5, 3.07), (0, 4.32), (5, 8.32)], 'SUV HEV':[(-5, 0.15), (0, 3), (5, 7.03)]}
 
 def applyAlgo(emissionsData):
     algodData = {}
@@ -83,9 +84,11 @@ def greenroutealgo(location1, location2, carType):
     return {"startAddress":routes[minRoute]['legs'][0]['start_address'],\
                       "endAddress":routes[minRoute]['legs'][0]['end_address'],\
                       "distance":routes[minRoute]['legs'][0]['distance']['text'],\
+                      "distancen":routes[minRoute]['legs'][0]['distance']['value'],\
                       "time":routes[minRoute]['legs'][0]['duration']['text'],\
+                      "timen":routes[minRoute]['legs'][0]['duration']['value'],\
                       "carbon":minCarbon,\
                       "averagempg":avgmpg,\
                       "maxcarbonsaved":maxCarbon-minCarbon,\
                       "directions":[x['html_instructions'] for x in routes[minRoute]['legs'][0]['steps']],\
-                      "path":routes[minRoute]['overview_polyline']['points']}
+                      "path":polyline.decode(routes[minRoute]['overview_polyline']['points'])}
