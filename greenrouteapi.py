@@ -19,22 +19,33 @@ def applyAlgo(emissionsData):
 
 algodData = applyAlgo(emissionsData)
 
-def carbonFunction(distance, slope, data):
+def fuelFactor(vel):
+    return 5.341880342*10**(-9)*vel**4 - 6.891025641*10**(-7)*vel**3 - 2.583867521*10**(-4)*vel**2 + 3.734615385*10**(-2)*vel + 0.2
+
+def carbonFunction(distance, slope, data, vel):
     grade = 100*slope
-    galpermile = (data[1]*data[2]**grade+data[0])/100
+    galpermile = (data[1]*data[2]**grade+data[0])/(100*fuelFactor(vel))
     return [galpermile*(distance*0.621371)*8887, 1/galpermile]
 
-def distcarb(points, elevations, data):
+def distcarb(points, elevations, data, steps):
     # carbonFunction = f(grade)=km/L
     lenTotal = 0
     carbon = 0
     avgmpg = 0
+    cVel = 0
+    distToNext = -0.0001
+    step = 0
     # vincenty's formula with height approximation using exponential moving averages to smooth data
     lastEMA = sum([(elevations[i]-elevations[i+1])/(math.sqrt(vincenty.vincenty(points[i], points[i+1])**2+((elevations[i]-elevations[i+1])/1000)**2)*1000) for i in range(0, 3)])/3
-    for i in range(0, len(points)-2):
+    for i in range(0, len(points)-1):
+        if lenTotal > distToNext:
+            while lenTotal > distToNext and step < len(steps)-1:
+                step += 1
+                distToNext += steps[step]['distance']['value']/1000
+            cVel = steps[step]['distance']['value']/(steps[step]['duration']['value'])*3.6
         dist = math.sqrt(vincenty.vincenty(points[i], points[i+1])**2+((elevations[i]-elevations[i+1])/1000)**2)
         lastEMA = (elevations[i+1]-elevations[i])/(dist*1000)*(0.125)+lastEMA*(0.875)
-        dcarbon, mpg = carbonFunction(dist, lastEMA, data)
+        dcarbon, mpg = carbonFunction(dist, lastEMA, data, cVel)
         carbon += dcarbon
         avgmpg += mpg*dist
         lenTotal += dist
@@ -46,11 +57,15 @@ def greenroutealgo(location1, location2, carType):
     statistics = []
     for route in routes:
         points = route['overview_polyline']['points']
-        elevationsJSON = json.loads(requests.get("https://maps.googleapis.com/maps/api/elevation/json?path=enc:"+points+"&samples="+str(int(route['legs'][0]['distance']['value']/100))+"&key="+API_KEY).text)
+        if int(route['legs'][0]['distance']['value']/100) > 512:
+            samples = 512
+        else:
+            samples = int(route['legs'][0]['distance']['value']/100)
+        elevationsJSON = json.loads(requests.get("https://maps.googleapis.com/maps/api/elevation/json?path=enc:"+points+"&samples="+str(samples)+"&key="+API_KEY).text)
         elevations = [x['elevation'] for x in elevationsJSON['results']]
         carData = algodData[carType]
         pointsd = [(x['location']['lat'], x['location']['lng']) for x in elevationsJSON['results']]
-        statistics.append(distcarb(pointsd, elevations, carData))
+        statistics.append(distcarb(pointsd, elevations, carData, route['legs'][0]['steps']))
 
     minCarbon = 9999999999999999999
     minRoute = -1
