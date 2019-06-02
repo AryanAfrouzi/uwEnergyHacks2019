@@ -162,7 +162,7 @@ def algog():
     entities = query_database(claims['sub'])
     
     if len(entities) != 0:
-        return jsonify(entities[0]), 200
+        return jsonify([entities[0].Midsize_Sedan_CV, entities[0].Midsize_Sedan_HEV, entities[0].SUV_CV, entities[0].SUV_HEV]), 200
     else:
         return jsonify([]), 200
     
