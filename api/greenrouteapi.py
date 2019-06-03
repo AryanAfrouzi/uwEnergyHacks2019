@@ -48,9 +48,9 @@ def distcarb(points, elevations, data, steps):
         lastEMA = (elevations[i+1]-elevations[i])/(dist*1000)*(0.125)+lastEMA*(0.875)
         dcarbon, mpg = carbonFunction(dist, lastEMA, data, cVel)
         carbon += dcarbon
-        avgmpg += mpg*dist
+        avgmpg += mpg*dist # *0.621371 but it cancels
         lenTotal += dist
-    return [lenTotal, carbon, avgmpg/lenTotal]
+    return [lenTotal, carbon, avgmpg/lenTotal] # /0.621371 but it cancels
 
 def greenroutealgo(location1, location2, carType):
     directionsAPIData = json.loads(requests.get("https://maps.googleapis.com/maps/api/directions/json?origin="+location1.replace(' ', '+')+"&destination="+location2.replace(' ', '+')+"&alternatives=true&key="+API_KEY).text)
